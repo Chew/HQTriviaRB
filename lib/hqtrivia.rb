@@ -33,4 +33,5 @@ end
 require 'hqtrivia/badge'
 require 'hqtrivia/badges'
 require 'hqtrivia/user'
+require 'hqtrivia/user/leaderboard'
 require 'hqtrivia/me'

@@ -32,7 +32,7 @@ class HQTrivia::User
   # This user's leaderboard, returned as a UserLeaderboard object
   # @return [UserLeaderboard] the user's leaderboard standings
   def leaderboard
-    HQTrivia::UserLeaderboard.new(@data['leaderboard'])
+    HQTrivia::User::Leaderboard.new(@data['leaderboard'])
   end
 
   # @return [Integer] the user's high score.
