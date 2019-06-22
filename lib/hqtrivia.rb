@@ -17,7 +17,13 @@ class HQTrivia
   def user(id)
     User.new(id, @key)
   end
+
+  # Get the authed user's profile
+  def me
+    Me.new(@key)
+  end
 end
 
 # Require files.
 require 'hqtrivia/user'
+require 'hqtrivia/me'
