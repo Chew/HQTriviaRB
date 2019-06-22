@@ -12,6 +12,12 @@ class HQTrivia
 
   # Get the key back. In case you left it at the door.
   attr_reader :key
+
+  # Get a user by ID
+  def user(id)
+    User.new(id, @key)
+  end
 end
 
 # Require files.
+require 'hqtrivia/user'
