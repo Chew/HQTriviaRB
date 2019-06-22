@@ -57,7 +57,7 @@ class HQTrivia::Me < HQTrivia::User
 
   # @return [StreakInfo] your streak info!
   def streak_info
-    StreakInfo.new(@data['streakInfo'])
+    HQTrivia::User::StreakInfo.new(@data['streakInfo'])
   end
 
   # @return [Integer] how many erasers you have
