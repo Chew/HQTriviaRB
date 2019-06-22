@@ -3,6 +3,7 @@ class HQTrivia::Me < HQTrivia::User
   # Get that user info!
   # @param key [String] the key of the user
   def initialize(key)
+    @key = key
     @data = JSON.parse(RestClient.get('https://api-quiz.hype.space/users/me', Authorization: key, 'x-hq-client': 'iOS/1.4.15 b146'))
   end
 
@@ -13,7 +14,7 @@ class HQTrivia::Me < HQTrivia::User
 
   # This is most likely always true, you need one to sign up!
   # @return [true, false] if this user has a phone number.
-  def has_phone?
+  def phone?
     @data['hasPhone']
   end
 

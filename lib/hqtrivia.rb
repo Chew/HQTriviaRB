@@ -22,8 +22,15 @@ class HQTrivia
   def me
     Me.new(@key)
   end
+
+  # Get the authed user's badges
+  def badges(id)
+    Badges.new(id, @key)
+  end
 end
 
 # Require files.
+require 'hqtrivia/badge'
+require 'hqtrivia/badges'
 require 'hqtrivia/user'
 require 'hqtrivia/me'
