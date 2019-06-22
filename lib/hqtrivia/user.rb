@@ -30,7 +30,7 @@ class HQTrivia::User
   end
 
   # This user's leaderboard, returned as a UserLeaderboard object
-  # @return [UserLeaderboard] the user's leaderboard standings
+  # @return [User::Leaderboard] the user's leaderboard standings
   def leaderboard
     HQTrivia::User::Leaderboard.new(@data['leaderboard'])
   end
@@ -56,13 +56,14 @@ class HQTrivia::User
     @data['achievementCount']
   end
 
+  # @return [Badges] the badges for this user.
   def badges
     HQTrivia::Badges.new(id, @key)
   end
 
-  # @return [SeasonXP] the season XP stats of this user
+  # @return [User::SeasonXP] the season XP stats of this user
   def season_xp
-    HQTrivia::SeasonXP.new(@data['seasonXp'])
+    HQTrivia::User::SeasonXP.new(@data['seasonXp'])
   end
 
   # @return [true, false] whether this person has been blocked by the authed user
