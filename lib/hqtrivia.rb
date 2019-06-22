@@ -14,18 +14,26 @@ class HQTrivia
   attr_reader :key
 
   # Get a user by ID
+  # @return [User] the new user
   def user(id)
     User.new(id, @key)
   end
 
   # Get the authed user's profile
+  # @return [Me] the you
   def me
     Me.new(@key)
   end
 
-  # Get the authed user's badges
+  # Get a user's badges (by user ID)
+  # @return [Badges] the badges
   def badges(id)
     Badges.new(id, @key)
+  end
+
+  # @return [Schedule] the show schedule
+  def schedule
+    Schedule.new(@key)
   end
 end
 
@@ -37,3 +45,4 @@ require 'hqtrivia/user/leaderboard'
 require 'hqtrivia/user/streakinfo'
 require 'hqtrivia/user/seasonxp'
 require 'hqtrivia/me'
+require 'hqtrivia/schedule'
