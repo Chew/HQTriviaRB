@@ -4,6 +4,7 @@ class HQTrivia::User
   # @param id [Integer] the ID of the user.
   # @param key [String] an API key, to get info.
   def initialize(id, key)
+    @key = key
     @data = JSON.parse(RestClient.get("https://api-quiz.hype.space/users/#{id}", Authorization: key))
   end
 
@@ -31,7 +32,7 @@ class HQTrivia::User
   # This user's leaderboard, returned as a UserLeaderboard object
   # @return [UserLeaderboard] the user's leaderboard standings
   def leaderboard
-    UserLeaderboard.new(@data['leaderboard'])
+    HQTrivia::UserLeaderboard.new(@data['leaderboard'])
   end
 
   # @return [Integer] the user's high score.
@@ -55,9 +56,13 @@ class HQTrivia::User
     @data['achievementCount']
   end
 
+  def badges
+    HQTrivia::Badges.new(id, @key)
+  end
+
   # @return [SeasonXP] the season XP stats of this user
   def season_xp
-    SeasonXP.new(@data['seasonXp'])
+    HQTrivia::SeasonXP.new(@data['seasonXp'])
   end
 
   # @return [true, false] whether this person has been blocked by the authed user
