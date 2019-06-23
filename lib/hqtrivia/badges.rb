@@ -3,6 +3,8 @@ class HQTrivia::Badges
   # Initialize a new user. Get all their stats. Relax.
   # @param id [Integer] the ID of the user.
   # @param key [String] an API key, to get info.
+  # @raise [HQTrivia::Errors::InvalidKey] if the api key is invalid
+  # @raise [HQTrivia::Errors::InvalidUser] if the user id is invalid
   def initialize(id, key)
     @data = JSON.parse(RestClient.get("https://api-quiz.hype.space/achievements/v2/#{id}", Authorization: key))
   rescue RestClient::NotFound
