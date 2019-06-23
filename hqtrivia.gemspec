@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = 'An HQ Trivia (https://hqtrivia.com) API Wrapper in Ruby'
   s.authors = ['Chew']
   s.email = 'chew@chew.pw'
-  s.files = Dir['lib/**/*.rb']
+  s.files = Dir['lib/**/*.rb',  'README.md', '.yardopts']
   s.homepage = 'https://github.com/Chew/HQTriviaRB'
   s.license = 'MIT'
   s.add_runtime_dependency 'json', '>= 2.0.0'
