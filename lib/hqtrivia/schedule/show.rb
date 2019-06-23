@@ -10,10 +10,10 @@ class HQTrivia::Schedule::Show
   # "hq" is general trivia.
   # "hq-sports" is sports
   # "hq-words" is words.
-  # @see [words?]
-  # @see [general?]
-  # @see [sports?]
-  # @see [trivia?]
+  # @see words?
+  # @see general?
+  # @see sports?
+  # @see trivia?
   # @return [String] the show type
   def show_type
     @data['showType']
@@ -42,7 +42,7 @@ class HQTrivia::Schedule::Show
   end
 
   # The opt is found in preferences.
-  # @see [Me#preferences]
+  # @see HQTrivia::Me#preferences
   # @return [String] the opt.
   def opt
     @show['vertical']
