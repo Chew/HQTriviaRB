@@ -65,6 +65,11 @@ class HQTrivia::Me < HQTrivia::User
     @data['erase1s']
   end
 
+  # @return [Integer] how many super spins you have
+  def super_spins
+    @data['items']['superSpins']
+  end
+
   # Your point multipliers. 2x, 3x, 4x.
   # @return [Hash<Integer, Integer>] your multipliers.
   def point_multiplier_count
