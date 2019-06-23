@@ -6,6 +6,10 @@ class HQTrivia::User
   def initialize(id, key)
     @key = key
     @data = JSON.parse(RestClient.get("https://api-quiz.hype.space/users/#{id}", Authorization: key))
+  rescue RestClient::NotFound
+    raise HQTrivia::Errors::InvalidUser, "This user doesn't exist!"
+  rescue RestClient::Unauthorized
+    raise HQTrivia::Errors::InvalidKey, "This API Key is invalid!"
   end
 
   # @return [Integer] their id

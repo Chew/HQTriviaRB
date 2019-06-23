@@ -5,6 +5,10 @@ class HQTrivia::Badges
   # @param key [String] an API key, to get info.
   def initialize(id, key)
     @data = JSON.parse(RestClient.get("https://api-quiz.hype.space/achievements/v2/#{id}", Authorization: key))
+  rescue RestClient::NotFound
+    raise HQTrivia::Errors::InvalidUser, "This user doesn't exist!"
+  rescue RestClient::Unauthorized
+    raise HQTrivia::Errors::InvalidKey, "This API Key is invalid!"
   end
 
   # @see [User#badges_count]
