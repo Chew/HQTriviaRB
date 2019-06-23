@@ -101,7 +101,7 @@ class HQTrivia::Schedule::Show
     @data['display']['bgVideo']
   end
 
-  # @return [String] the prize in cents.
+  # @return [Integer] the prize in cents.
   def prize_cents
     @data['prizeCents']
   end

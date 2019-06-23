@@ -10,7 +10,7 @@ class HQTrivia::Schedule
   # @return [Array<Show>] all upcoming shows
   def shows
     shows = []
-    @data['shows'].each { |show| shows.push(HQTrivia::Show.new(show)) }
+    @data['shows'].each { |show| shows.push(Show.new(show)) }
     shows
   end
 
@@ -22,7 +22,7 @@ class HQTrivia::Schedule
   # @return [Array<Announcement>] all announcements (shown in the schedule tab)
   def announcements
     announcements = []
-    @data['tentpoles'].each { |announcement| announcements.push(HQTrivia::Announcement.new(announcement)) }
+    @data['tentpoles'].each { |announcement| announcements.push(Announcement.new(announcement)) }
     announcements
   end
 end
