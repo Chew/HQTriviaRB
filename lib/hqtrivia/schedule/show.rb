@@ -120,4 +120,32 @@ class HQTrivia::Schedule::Show
   def season_name
     @data['seasonName']
   end
+
+  # @return [true, false] if this show is an HQ Words game
+  def words?
+    return true if vertical == 'words'
+
+    false
+  end
+
+  # @return [true, false] if this show is an HQ Trivia game (general or sports)
+  def trivia?
+    return true if game_type == 'trivia'
+
+    false
+  end
+
+  # @return [true, false] if this show is an HQ Sports game
+  def sports?
+    return true if vertical == 'sports'
+
+    false
+  end
+
+  # @return [true, false] if this show is an HQ Trivia (not sports) game
+  def general?
+    return true if vertical == 'general'
+
+    false
+  end
 end
