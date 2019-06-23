@@ -3,11 +3,12 @@ class HQTrivia::User
   # Initialize a new user. Get all their stats. Relax.
   # @param id [Integer] the ID of the user.
   # @param key [String] an API key, to get info.
+  # @param data [JSON, nil] raw data. Don't use this unless you have user JSON data.
   # @raise [HQTrivia::Errors::InvalidKey] if the api key is invalid
   # @raise [HQTrivia::Errors::InvalidUser] if the user id is invalid
-  def initialize(id, key)
+  def initialize(id: nil, key: nil, data: nil)
     @key = key
-    @data = JSON.parse(RestClient.get("https://api-quiz.hype.space/users/#{id}", Authorization: key))
+    @data = data || JSON.parse(RestClient.get("https://api-quiz.hype.space/users/#{id}", Authorization: key))
   rescue RestClient::NotFound
     raise HQTrivia::Errors::InvalidUser, "This user doesn't exist!"
   rescue RestClient::Unauthorized

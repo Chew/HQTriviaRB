@@ -75,4 +75,14 @@ class HQTrivia::Me < HQTrivia::User
   def point_multiplier_count
     @data['pointsMultiplierCounts']
   end
+
+  # @return [Array<User>] your friends
+  def friends
+    @data = JSON.parse(RestClient.get('https://api-quiz.hype.space/friends', Authorization: @key, 'x-hq-client': 'iOS/1.4.15 b146'))
+    friends = []
+    @data['data'].each do |user|
+      friends.push HQTrivia::User.new(data: user)
+    end
+    friends
+  end
 end

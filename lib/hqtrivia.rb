@@ -16,7 +16,7 @@ class HQTrivia
   # Get a user by ID
   # @return [User] the new user
   def user(id)
-    User.new(id, @key)
+    User.new(id: id, key: @key)
   end
 
   # Get the authed user's profile
